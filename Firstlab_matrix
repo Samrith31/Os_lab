@@ -1,0 +1,261 @@
+#include <stdio.h>
+
+int **addition (int arr1[3][3],int arr2[3][3]){
+    int **result;
+    for(int i=0;i<3;i++){
+        for(int j=0;j<3;j++){
+            result[i][j]=arr1[i][j]+arr2[i][j];
+            return result;
+        }
+    }
+}
+
+int** multiplication (int arr1[3][3],int arr2[3][3]){
+    int **result;
+    int i,j,k;
+   for(i=0;i<3;i++)    
+    {    
+for(j=0;j<3;j++)    
+       {    
+result[i][j]=0;    
+for(k=0;k<3;k++)    
+     {    
+result[i][j]+=arr1[i][k]*arr2[k][j];    
+}    
+}    
+}
+return result;
+}
+
+
+int** transpose (int arr1[3][3]){
+    int **result;
+    for(int i=0;i<3;i++){
+        for(int j=0;j<3;j++){
+            result[i][j]=arr1[j][i];
+            return result;
+        }
+    }
+}
+
+
+
+int sumofprincipal (int arr1[3][3]){
+   
+    int sum=0;
+    for(int i=0;i<3;i++){
+        for(int j=0;j<3;j++){
+           if(i==j){
+               sum+=arr1[i][j];
+           }
+        }
+    }
+    return sum;
+}
+
+
+void symmetric(int arr1[3][3]){
+    int** result;
+    for(int i=0;i<3;i++){
+        for(int j=0;j<3;j++){
+            result[i][j]=arr1[j][i];
+            
+        }
+
+    }
+    
+     for(int i=0;i<3;i++){
+        for(int j=0;j<3;j++){
+            
+           if(result[i][j]!=arr1[i][j]){
+               printf("The given matrix is not symmetric");
+               break;
+           } 
+           else{
+               printf("The given matrix is symmetric");
+           }
+            
+        }
+        
+        }
+}
+
+
+
+
+void sumofrowcol (int arr1[3][3]){
+   
+    int rowsum=0;
+    int colsum=0;
+    int i,j;
+    for( i=0;i<3;i++){
+        rowsum=0;
+        for(j=0;j<3;j++){
+            rowsum=rowsum+arr1[i][j];
+        }
+        printf("The sum of %d row is :%d ",i,rowsum);
+        printf("\n");
+        
+    }
+    
+    for( i=0;i<3;i++){
+        colsum=0;
+        for( j=0;j<3;j++){
+            colsum=colsum+arr1[j][i];
+        }
+        printf("The sum of %d col is :%d ",j,colsum);
+    }
+    
+    
+}
+
+void print(int arr[3][3]){
+    int i,j;
+    
+    
+    
+    for(i=0;i<3;i++){
+               for(j=0;j<3;j++){
+              printf("%d\t",arr[i][j]);
+              
+    
+               }
+               printf("\n");
+    }
+}
+
+
+
+
+
+
+
+int main()
+{
+    printf("1.Matrix addition\n2.Matrix mul\n3.check for symmetric\n4.sum of sumofprincipal diagonal\n5.sum of every row and column\n6.transpose of matrix");
+   int choice;
+   printf("Enter your choice\n");
+   scanf("%d" ,&choice);
+   int arr1[3][3];
+   int arr2[3][3];
+   
+   if(choice==1){
+       int i,j;
+       printf("Enter the first array\n");
+           for(i=0;i<3;i++){
+               for(j=0;j<3;j++){
+                   scanf("%d",&arr1[i][j]);
+               }
+           }
+       
+       
+         printf("Enter the Second array\n");
+           for(i=0;i<3;i++){
+               for(j=0;j<3;j++){
+                   scanf("%d",&arr2[i][j]);
+               }
+           }
+       }
+       
+       int **result;
+       result=addition(arr1,arr2);
+       print(result);
+       
+   }
+   
+if(choice==2){
+    int i,j;
+       printf("Enter the first array\n");
+           for(i=0;i<3;i++){
+               for(j=0;j<3;j++){
+                   scanf("%d",&arr1[i][j]);
+               }
+           }
+      
+       
+         printf("Enter the Second array\n");
+           for(i=0;i<3;i++){
+               for(j=0;j<3;j++){
+                   scanf("%d",&arr2[i][j]);
+               }
+           }
+       }
+       int **result;
+       result=multiplication(arr1,arr2);
+       print(result);
+       
+       
+}
+
+if(choice==3){
+    int i,j;
+       printf("Enter the first array\n");
+           for(i=0;i<3;i++){
+               for(j=0;j<3;j++){
+                   scanf("%d",&arr1[i][j]);
+               }
+           }
+       
+       
+       symmetric(arr1);
+}
+
+
+if(choice==4){
+    int i,j;
+       printf("Enter the first array\n");
+           for(i=0;i<3;i++){
+               for(j=0;j<3;j++){
+                   scanf("%d",&arr1[i][j]);
+               }
+           }
+       
+       
+int sum=sumofprincipal(arr1);
+printf("The sumofprincipal is %d",sum);
+}
+ 
+
+
+
+
+  if(choice==5){
+    int i,j;
+       printf("Enter the first array\n");
+           for(i=0;i<3;i++){
+               for(j=0;j<3;j++){
+                   scanf("%d",&arr1[i][j]);
+               }
+           }
+       
+       
+       sumofrowcol(arr1);
+}
+ 
+ 
+ if(choice==6){
+    int i,j;
+       printf("Enter the first array\n");
+           for(i=0;i<3;i++){
+               for(j=0;j<3;j++){
+                   scanf("%d",&arr1[i][j]);
+               }
+           }
+       
+        int ** result;
+        result=transpose(arr1);
+        print(result);
+       
+}
+   
+     
+    
+   
+   
+   
+   
+   
+   
+   
+
+}
